@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bühler Business Model Transformation</title>
+<style>
+    :root {
+        --bg: #07111f;
+        --panel: rgba(255,255,255,0.08);
+        --text: #f4f7fb;
+        --muted: rgba(244,247,251,0.72);
+        --accent: #2C8C99;
+        --accent2: #D4763C;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+            radial-gradient(circle at top left, rgba(44,140,153,0.26), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(212,118,60,0.20), transparent 30%),
+            linear-gradient(135deg, #07111f 0%, #0b1627 55%, #101827 100%);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+    }
+
+    .page { width: min(1120px, 100%); }
+
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        letter-spacing: 0.2px;
+    }
+
+    .mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), #8ee5dd);
+        box-shadow: 0 0 24px rgba(44,140,153,0.45);
+    }
+
+    .eyebrow {
+        font-size: 13px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    h1 {
+        margin: 3px 0 0;
+        font-size: clamp(20px, 3vw, 34px);
+        line-height: 1.1;
+    }
+
+    .hint {
+        color: var(--muted);
+        font-size: 14px;
+        text-align: right;
+    }
+
+    .frame {
+        background: var(--panel);
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 22px;
+        padding: 14px;
+        box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+        backdrop-filter: blur(10px);
+    }
+
+    video {
+        width: 100%;
+        display: block;
+        border-radius: 14px;
+        background: #000;
+        aspect-ratio: 16 / 9;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    button {
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 9px 14px;
+        cursor: pointer;
+        font-size: 13px;
+    }
+
+    button:hover { background: rgba(255,255,255,0.14); }
+
+    @media (max-width: 640px) {
+        body { padding: 16px; }
+        .topbar, .footer {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        .hint { text-align: left; }
+    }
+</style>
+</head>
+<body>
+    <main class="page">
+        <section class="topbar">
+            <div class="brand">
+                <div class="mark" aria-hidden="true"></div>
+                <div>
+                    <div class="eyebrow">Bühler Group Simulation</div>
+                    <h1>Bühler Business Model Transformation</h1>
+                </div>
+            </div>
+            <div class="hint">Click play to view the video</div>
+        </section>
+
+        <section class="frame">
+            <video id="videoPlayer" controls preload="metadata" playsinline>
+                <source src="1_buhler_business_model_transformation (2).mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <section class="footer">
+            <span>01 / Business Model Transformation</span>
+            <button onclick="replayVideo()">Replay</button>
+        </section>
+    </main>
+
+<script>
+function replayVideo() {
+    const video = document.getElementById("videoPlayer");
+    video.currentTime = 0;
+    video.play();
+}
+</script>
+</body>
+</html>
